@@ -10,7 +10,7 @@ import static org.openqa.selenium.By.linkText;
 
 public class SelenideWithStepsTest extends BaseTest {
     private static final String REPOSITORY = "Dramasha/AllureReportsTest";
-    private static final int Issue = 1;
+    private static final int ISSUE = 1;
 
     @Test
     public void selenideWithStepsTest(){
@@ -29,8 +29,8 @@ public class SelenideWithStepsTest extends BaseTest {
         step("Открываем таб Issues", () -> {
             $("#issues-tab").click();
         });
-        step("Проверяем наличие Issues с номером" + Issue + " под названием самого " + Issue, () -> {
-            $(withText("#" + Issue)).should(Condition.exist);
+        step("Проверяем наличие Issues с номером" + ISSUE + " под названием самого " + ISSUE, () -> {
+            $(withText("#" + ISSUE)).should(Condition.exist);
         });
     }
 
@@ -42,6 +42,6 @@ public class SelenideWithStepsTest extends BaseTest {
         steps.searchForRepository(REPOSITORY);
         steps.clickOnRepositoryLink(REPOSITORY);
         steps.openIssueTab();
-        steps.shouldSeeIssueWithNumber(Issue);
+        steps.shouldSeeIssueWithNumber(ISSUE);
     }
 }
