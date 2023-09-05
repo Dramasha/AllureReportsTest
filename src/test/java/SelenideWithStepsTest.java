@@ -9,7 +9,7 @@ import static io.qameta.allure.Allure.step;
 import static org.openqa.selenium.By.linkText;
 
 public class SelenideWithStepsTest extends BaseTest {
-    private static final String Repository = "Dramasha/AllureReportsTest";
+    private static final String REPOSITORY = "Dramasha/AllureReportsTest";
     private static final int Issue = 1;
 
     @Test
@@ -19,12 +19,12 @@ public class SelenideWithStepsTest extends BaseTest {
         step("Откываем главную страницу сайта Github", () -> {
                     open("https://www.github.com");
         });
-        step("Ищем репозиторий " + Repository + " в поисковой строке вверхней правой части сайта", () -> {
+        step("Ищем репозиторий " + REPOSITORY + " в поисковой строке вверхней правой части сайта", () -> {
             $(".search-input").click();
-            $("#query-builder-test").setValue(Repository).submit();
+            $("#query-builder-test").setValue(REPOSITORY).submit();
         });
-        step("Кликаем по ссылке репозитория" + Repository + " в верхней центральной части страницы", () -> {
-            $(linkText(Repository)).click();
+        step("Кликаем по ссылке репозитория" + REPOSITORY + " в верхней центральной части страницы", () -> {
+            $(linkText(REPOSITORY)).click();
         });
         step("Открываем таб Issues", () -> {
             $("#issues-tab").click();
@@ -39,8 +39,8 @@ public class SelenideWithStepsTest extends BaseTest {
         WebSteps steps = new WebSteps();
 
         steps.openMainPage();
-        steps.searchForRepository(Repository);
-        steps.clickOnRepositoryLink(Repository);
+        steps.searchForRepository(REPOSITORY);
+        steps.clickOnRepositoryLink(REPOSITORY);
         steps.openIssueTab();
         steps.shouldSeeIssueWithNumber(Issue);
     }
